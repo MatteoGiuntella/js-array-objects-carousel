@@ -8,10 +8,7 @@ img{
 /* classi */
 
 .active{
-    display: block;
-}
-.none{
-    display: none;
+    display: block !important;
 }
 .box-slide{
     position: relative;

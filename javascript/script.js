@@ -63,9 +63,12 @@ let slide = document.querySelector('#carousel-container').innerHTML = carousel
 let next = document.getElementById('next')
 let previous = document.getElementById('previous')
 
-let carouselNone = document.getElementsByClassName('none')
+let carouselNone = document.getElementsByClassName('box-slide')
 
 let counter = 0
+
+console.log('carouselNone: ', carouselNone)
+console.log('counter: ', counter)
 
 carouselNone[counter].classList.add('active');
 
@@ -73,15 +76,14 @@ next.addEventListener("click", function(){
 
     carouselNone[counter].classList.remove('active');
 
-    if ( counter < images.length -1 ){
+    console.log('next() carouselNone[counter]: ', carouselNone[counter])
+    console.log('next() counter: ', counter)
 
-    counter ++;
-
+    if ( counter < (images.length - 1) ){
+        counter++;
     }
     else{
-
-    counter = 0;
-
+        counter = 0;
     }
     carouselNone[counter].classList.add('active');
 })
@@ -90,10 +92,12 @@ next.addEventListener("click", function(){
 previous.addEventListener("click", function(){
     carouselNone[counter].classList.remove('active');
 
-    if ( counter != 0){
-        counter --;
+    if ( counter > 0){
+
+        counter--;
     }
     else{
+
         counter = images.length -1;
     }
     carouselNone[counter].classList.add('active');
