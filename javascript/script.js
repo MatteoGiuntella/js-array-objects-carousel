@@ -35,3 +35,67 @@ const images = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
+
+let flag = false
+
+let carousel = ''
+
+
+for (let i = 0; i < images.length; i++) {
+
+    carousel += `<div class="box-slide">
+                <div class="img-box">
+                <img src="${ images[i].url }">
+                </div>
+                <div class="text-box">
+                <h3 class="title-img">
+                ${ images[i].title }
+                </h3>
+                <p class="decription-img">
+                ${ images[i].description }
+                </p>
+                </div>
+                </div>`
+}
+
+let slide = document.querySelector('#carousel-container').innerHTML = carousel 
+
+let next = document.getElementById('next')
+let previous = document.getElementById('previous')
+
+let carouselNone = document.getElementsByClassName('none')
+
+let counter = 0
+
+carouselNone[counter].classList.add('active');
+
+next.addEventListener("click", function(){
+
+    carouselNone[counter].classList.remove('active');
+
+    if ( counter < images.length -1 ){
+
+    counter ++;
+
+    }
+    else{
+
+    counter = 0;
+
+    }
+    carouselNone[counter].classList.add('active');
+})
+
+
+previous.addEventListener("click", function(){
+    carouselNone[counter].classList.remove('active');
+
+    if ( counter != 0){
+        counter --;
+    }
+    else{
+        counter = images.length -1;
+    }
+    carouselNone[counter].classList.add('active');
+})
+
